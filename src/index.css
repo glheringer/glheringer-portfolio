@@ -99,9 +99,9 @@ All colors MUST be HSL.
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "cv11", "ss01";
   }
-  
+
   html {
-    scroll-behavior: smooth;
+    /* Lenis handles smooth scrolling */
   }
 }
 
