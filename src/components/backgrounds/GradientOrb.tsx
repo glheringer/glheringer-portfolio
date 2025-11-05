@@ -18,9 +18,9 @@ export const GradientOrb = ({
   };
 
   const colorClasses = {
-    primary: 'bg-primary/10',
-    accent: 'bg-accent/10',
-    hover: 'bg-hover/10',
+    primary: 'bg-primary/25',
+    accent: 'bg-accent/25',
+    hover: 'bg-hover/25',
   };
 
   return (

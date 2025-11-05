@@ -64,9 +64,9 @@ export const AnimatedDots = () => {
         // Draw dot
         ctx.beginPath();
         ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
-        ctx.fillStyle = isDark 
-          ? 'rgba(78, 154, 241, 0.3)' 
-          : 'rgba(46, 139, 192, 0.3)';
+        ctx.fillStyle = isDark
+          ? 'rgba(78, 154, 241, 0.7)'
+          : 'rgba(46, 139, 192, 0.6)';
         ctx.fill();
       });
 
@@ -82,8 +82,8 @@ export const AnimatedDots = () => {
             ctx.moveTo(dot.x, dot.y);
             ctx.lineTo(otherDot.x, otherDot.y);
             ctx.strokeStyle = isDark
-              ? `rgba(78, 154, 241, ${0.15 * (1 - distance / 150)})`
-              : `rgba(46, 139, 192, ${0.15 * (1 - distance / 150)})`;
+              ? `rgba(78, 154, 241, ${0.4 * (1 - distance / 150)})`
+              : `rgba(46, 139, 192, ${0.35 * (1 - distance / 150)})`;
             ctx.lineWidth = 1;
             ctx.stroke();
           }
@@ -104,7 +104,7 @@ export const AnimatedDots = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none opacity-40"
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-70"
       style={{ background: 'transparent' }}
     />
   );
