@@ -5,23 +5,23 @@ import { GradientOrb } from '@/components/backgrounds/GradientOrb';
 export const Projects = () => {
   const projects = [
     {
-      title: 'E-Commerce Platform',
-      description: 'Plataforma completa de e-commerce com carrinho, checkout e painel administrativo',
-      tags: ['React', 'TypeScript', 'Zustand', 'Stripe'],
+      title: 'CRM Grupo Multiluz',
+      description: 'Redesign completo do CRM interno, aprimorando UX e reduzindo tempo de atendimento. Inclui calculadora fotovoltaica para totens interativos',
+      tags: ['React', 'Material UI', 'Styled Components', 'Express', 'TypeScript'],
       link: '#',
       github: '#',
     },
     {
-      title: 'Task Manager',
-      description: 'Aplicação de gerenciamento de tarefas com drag-and-drop e filtros avançados',
-      tags: ['React', 'React Query', 'Tailwind', 'Supabase'],
+      title: 'App Connect - Rede Social Corporativa',
+      description: 'Aplicativo mobile de rede social corporativa para otimizar comunicação interna, com funcionalidades de visibilidade e insights sobre publicações',
+      tags: ['React Native', 'Node.js', 'APIs', 'Mobile'],
       link: '#',
       github: '#',
     },
     {
-      title: 'Weather Dashboard',
-      description: 'Dashboard interativo com previsão do tempo e gráficos de temperatura',
-      tags: ['Next.js', 'TypeScript', 'Chart.js', 'API'],
+      title: 'Santander Esfera',
+      description: 'Desenvolvimento de novas telas e fluxos intuitivos para o aplicativo, com criação de SDK reutilizável. Redução de 40% nos erros reportados',
+      tags: ['React Native', 'APIs', 'Testes Unitários', 'Mobile'],
       link: '#',
       github: '#',
     },

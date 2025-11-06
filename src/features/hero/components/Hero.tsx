@@ -13,10 +13,10 @@ export const Hero = () => {
       <div className="max-w-5xl mx-auto text-center relative z-10">
         <div className="animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-gradient">
-            Frontend Developer
+            Desenvolvedor de Software Pleno
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Criando experiências web modernas e performáticas com React, TypeScript e as melhores práticas de desenvolvimento
+            Criando experiências web e mobile modernas e performáticas com React, React Native, Node.js e as melhores práticas de desenvolvimento
           </p>
           
           <div className="flex flex-wrap gap-4 justify-center mb-12">
@@ -46,7 +46,7 @@ export const Hero = () => {
               className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               asChild
             >
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/glheringer" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-5 w-5" />
               </a>
             </Button>
@@ -56,7 +56,7 @@ export const Hero = () => {
               className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               asChild
             >
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://linkedin.com/in/glheringer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
             </Button>

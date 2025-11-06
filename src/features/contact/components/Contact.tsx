@@ -6,19 +6,19 @@ export const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'contato@exemplo.com',
-      href: 'mailto:contato@exemplo.com',
+      value: 'guilhermeheringer1999@gmail.com',
+      href: 'mailto:guilhermeheringer1999@gmail.com',
     },
     {
       icon: Phone,
       label: 'Telefone',
-      value: '+55 (11) 99999-9999',
-      href: 'tel:+5511999999999',
+      value: '+55 (31) 99757-7741',
+      href: 'tel:+553199757-7741',
     },
     {
       icon: MapPin,
       label: 'Localização',
-      value: 'São Paulo, Brasil',
+      value: 'Ipatinga - Minas Gerais, Brasil',
       href: '#',
     },
   ];
@@ -64,7 +64,7 @@ export const Contact = () => {
                        hover:shadow-xl transition-all duration-300"
               asChild
             >
-              <a href="mailto:contato@exemplo.com">
+              <a href="mailto:guilhermeheringer1999@gmail.com">
                 Enviar Mensagem
                 <Mail className="ml-2 h-4 w-4" />
               </a>

@@ -48,12 +48,27 @@ export const About = () => {
         </div>
 
         <div className="card-elegant p-8 md:p-12 animate-fade-in">
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-3xl mx-auto text-center">
-            Desenvolvedor frontend apaixonado por criar experiências web excepcionais. 
-            Com foco em React, TypeScript e arquitetura moderna, transformo ideias em 
-            aplicações robustas e escaláveis. Sempre em busca de novos desafios e 
-            oportunidades para crescer profissionalmente.
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
+            <div className="flex-shrink-0">
+              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl hover:scale-105 transition-transform duration-300">
+                <img
+                  src="/images/profile.jpg"
+                  alt="Guilherme Heringer Cordeiro"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="flex-1">
+              <p className="text-lg text-muted-foreground leading-relaxed text-center md:text-left">
+                Desenvolvedor de Software Pleno de 25 anos, residente em Ipatinga - Minas Gerais.
+                Com experiência consolidada em desenvolvimento de aplicações web e mobile, atuo com React, React Native,
+                Node.js, TypeScript e frameworks modernos. Forte atuação em metodologias ágeis, participei de projetos
+                de grande porte incluindo integração de APIs, testes automatizados e otimização de performance.
+                Transformo ideias em aplicações robustas e escaláveis, sempre em busca de novos desafios e
+                oportunidades para crescer profissionalmente. Disponível para viagens a trabalho.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

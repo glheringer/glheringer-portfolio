@@ -1,16 +1,16 @@
 export const Skills = () => {
   const skillCategories = [
     {
-      title: 'Frontend',
-      skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Zustand', 'React Query'],
+      title: 'Frontend & Mobile',
+      skills: ['React', 'React Native', 'TypeScript', 'HTML', 'CSS', 'SASS', 'Material UI', 'Styled Components', 'Tailwind CSS'],
     },
     {
-      title: 'Ferramentas',
-      skills: ['Git', 'Vite', 'ESLint', 'Prettier', 'Figma', 'VS Code'],
+      title: 'Backend & Database',
+      skills: ['Node.js', 'Express', 'RESTful APIs', 'SQL', 'NoSQL', 'Integração de APIs'],
     },
     {
-      title: 'Conceitos',
-      skills: ['Responsive Design', 'Clean Code', 'Feature-Based Architecture', 'RESTful APIs', 'State Management', 'Testing'],
+      title: 'Ferramentas & Metodologias',
+      skills: ['Git', 'Figma', 'VS Code', 'Metodologias Ágeis', 'Clean Code', 'Testes Automatizados', 'Otimização de Performance'],
     },
   ];
 

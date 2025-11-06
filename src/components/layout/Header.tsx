@@ -45,7 +45,7 @@ export const Header = () => {
             }}
             className="text-2xl font-bold text-gradient cursor-pointer"
           >
-            Portfolio
+            Guilherme Heringer Cordeiro
           </a>
 
           {/* Desktop Navigation */}

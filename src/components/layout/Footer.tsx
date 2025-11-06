@@ -17,7 +17,7 @@ export const Footer = () => {
               className="rounded-full hover:bg-accent/10 hover:text-accent transition-all"
               asChild
             >
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href="https://github.com/glheringer" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                 <Github className="h-5 w-5" />
               </a>
             </Button>
@@ -27,7 +27,7 @@ export const Footer = () => {
               className="rounded-full hover:bg-accent/10 hover:text-accent transition-all"
               asChild
             >
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href="https://linkedin.com/in/glheringer" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                 <Linkedin className="h-5 w-5" />
               </a>
             </Button>
@@ -37,7 +37,7 @@ export const Footer = () => {
               className="rounded-full hover:bg-accent/10 hover:text-accent transition-all"
               asChild
             >
-              <a href="mailto:contato@exemplo.com" aria-label="Email">
+              <a href="mailto:guilhermeheringer1999@gmail.com" aria-label="Email">
                 <Mail className="h-5 w-5" />
               </a>
             </Button>
