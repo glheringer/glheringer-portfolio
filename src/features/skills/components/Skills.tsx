@@ -84,11 +84,10 @@ export const Skills = () => {
 
         <div className="relative" style={{ height: '160vh' }}>
           {skillCategories.map((category, categoryIndex) => {
-            const isLastCard = categoryIndex === skillCategories.length - 1;
             return (
               <div
                 key={categoryIndex}
-                ref={(el) => (cardRefs.current[categoryIndex] = el)}
+                ref={(el) => { cardRefs.current[categoryIndex] = el; }}
                 className="sticky animate-fade-in"
                 style={{
                   top: `${80 + categoryIndex * 32}px`,
