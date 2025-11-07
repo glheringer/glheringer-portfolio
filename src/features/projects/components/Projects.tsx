@@ -43,7 +43,7 @@ export const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="relative py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
+    <section id="projects" className="relative overflow-hidden">
       <GradientOrb className="top-1/2 right-0 -translate-y-1/2" size="lg" color="hover" delay={1} />
       <div className="max-w-6xl mx-auto relative z-10">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient">
@@ -55,6 +55,9 @@ export const Projects = () => {
             <MagicCard
               key={index}
               className="animate-fade-in"
+              gradientSize={250}
+              gradientColor="#3b82f6"
+              gradientOpacity={0.4}
             >
               <div
                 className="p-5 sm:p-6 h-full group"

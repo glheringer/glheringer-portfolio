@@ -1,25 +1,72 @@
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import { CSSProperties, ReactNode, useRef, useState } from "react";
 
 interface MagicCardProps {
   children: ReactNode;
   className?: string;
+  gradientSize?: number;
+  gradientColor?: string;
+  gradientOpacity?: number;
 }
 
-export const MagicCard = ({ children, className }: MagicCardProps) => {
+export const MagicCard = ({
+  children,
+  className,
+  gradientSize = 200,
+  gradientColor = "#3b82f6",
+  gradientOpacity = 0.5,
+}: MagicCardProps) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [opacity, setOpacity] = useState(0);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    setPosition({ x, y });
+  };
+
+  const handleMouseEnter = () => {
+    setOpacity(1);
+  };
+
+  const handleMouseLeave = () => {
+    setOpacity(0);
+  };
+
   return (
-    <div className={cn("relative group", className)}>
-      {/* Animated gradient border */}
-      <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-blue-500 rounded-lg opacity-0 group-hover:opacity-100 blur-sm transition duration-500 animate-tilt" />
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className={cn("relative group rounded-lg p-[2px]", className)}
+      style={{
+        background: opacity > 0
+          ? `radial-gradient(${gradientSize * 1.5}px circle at ${position.x}px ${position.y}px, ${gradientColor}, transparent 60%)`
+          : 'transparent',
+        transition: 'background 0s',
+      }}
+    >
+      {/* Card background */}
+      <div className="relative h-full w-full rounded-lg bg-card border border-border/50 overflow-hidden">
+        {/* Inner spotlight effect */}
+        <div
+          className="pointer-events-none absolute inset-0 transition-opacity duration-300"
+          style={{
+            background: `radial-gradient(${gradientSize}px circle at ${position.x}px ${position.y}px, ${gradientColor}60, transparent 50%)`,
+            opacity: opacity * gradientOpacity,
+          }}
+        />
 
-      {/* Card content */}
-      <div className="relative h-full w-full rounded-lg bg-card border border-border/50 group-hover:border-blue-500/50 transition-all duration-500">
-        {children}
-      </div>
-
-      {/* Shine effect */}
-      <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
-        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-blue-400/10 to-transparent animate-shine" />
+        {/* Content */}
+        <div className="relative z-10">
+          {children}
+        </div>
       </div>
     </div>
   );
