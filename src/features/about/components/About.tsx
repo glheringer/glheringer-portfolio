@@ -41,7 +41,7 @@ export const About = () => {
                   <Icon className="h-8 w-8 text-accent" />
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
+                <p className="text-muted-foreground text-justify">{feature.description}</p>
               </div>
             );
           })}
@@ -59,7 +59,7 @@ export const About = () => {
               </div>
             </div>
             <div className="flex-1">
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-center md:text-left">
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-justify">
                 Desenvolvedor de Software Pleno de 25 anos de idade, residente em Ipatinga - Minas Gerais.
                 Com experiência consolidada em desenvolvimento de aplicações web e mobile, atuo com React, React Native,
                 Node.js, TypeScript e frameworks modernos. Forte atuação em metodologias ágeis, participei de projetos

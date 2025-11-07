@@ -15,7 +15,7 @@ export const Hero = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-gradient leading-tight">
             Desenvolvedor de Software Pleno
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-2 text-justify">
             Criando experiências web e mobile modernas e performáticas com React, React Native, Node.js e as melhores práticas de desenvolvimento
           </p>
 

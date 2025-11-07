@@ -31,7 +31,7 @@ export const Contact = () => {
         </h2>
 
         <div className="card-elegant p-6 sm:p-8 md:p-12 animate-fade-in">
-          <p className="text-center text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8">
+          <p className="text-center text-sm sm:text-base md:text-lg text-muted-foreground mb-6 sm:mb-8 text-justify">
             Interessado em trabalhar juntos? Vamos conversar sobre seu próximo projeto!
           </p>
 

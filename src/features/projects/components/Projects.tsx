@@ -5,6 +5,20 @@ import { GradientOrb } from '@/components/backgrounds/GradientOrb';
 export const Projects = () => {
   const projects = [
     {
+      title: 'Landing Pages - Grupo Multiluz',
+      description: 'Landing pages institucionais e de produtos para o Grupo Multiluz, focadas em conversão e performance com design moderno e responsivo',
+      tags: ['React', 'TypeScript', 'Tailwind CSS', 'SEO', 'Performance'],
+      link: 'https://grupomultiluz.com.br/',
+      github: '#',
+    },
+    {
+      title: 'E-commerce - Oliva Originals',
+      description: 'Plataforma de e-commerce completa para venda de produtos online, com checkout otimizado, painel administrativo e integração com meios de pagamento',
+      tags: ['React', 'Node.js', 'E-commerce', 'Payment Gateway', 'TypeScript'],
+      link: 'https://olivaoriginals.com.br/',
+      github: '#',
+    },
+    {
       title: 'CRM Grupo Multiluz',
       description: 'Redesign completo do CRM interno, aprimorando UX e reduzindo tempo de atendimento. Inclui calculadora fotovoltaica para totens interativos',
       tags: ['React', 'Material UI', 'Styled Components', 'Express', 'TypeScript'],
@@ -50,7 +64,7 @@ export const Projects = () => {
               <h3 className="text-lg sm:text-xl font-semibold mb-2 group-hover:text-accent transition-colors">
                 {project.title}
               </h3>
-              <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm">
+              <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm text-justify">
                 {project.description}
               </p>
 
