@@ -87,7 +87,12 @@ echo -e "${GREEN}✅ Build concluído${NC}"
 # Configurar Nginx
 echo -e "${BLUE}⚙️  Configurando Nginx...${NC}"
 
-cat > ${NGINX_CONF} << 'EOF'
+# Verificar se já existe configuração SSL
+if grep -q "listen 443 ssl" ${NGINX_CONF} 2>/dev/null; then
+    echo -e "${BLUE}SSL já configurado, mantendo configuração existente${NC}"
+else
+    echo -e "${BLUE}Criando configuração inicial do Nginx${NC}"
+    cat > ${NGINX_CONF} << 'EOF'
 server {
     listen 80;
     listen [::]:80;
@@ -120,6 +125,7 @@ server {
     add_header X-XSS-Protection "1; mode=block" always;
 }
 EOF
+fi
 
 # Ativar site no Nginx
 ln -sf ${NGINX_CONF} /etc/nginx/sites-enabled/
