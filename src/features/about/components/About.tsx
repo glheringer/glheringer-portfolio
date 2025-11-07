@@ -21,36 +21,36 @@ export const About = () => {
   ];
 
   return (
-    <section id="about" className="relative py-16 sm:py-20 px-4 sm:px-6">
+    <section id="about" className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
       <GridBackground />
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-gradient">
           Sobre Mim
         </h2>
 
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-8 sm:mb-12 md:mb-16">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
               <div
                 key={index}
-                className="card-elegant p-8 hover-lift animate-fade-in"
+                className="card-elegant p-4 sm:p-5 md:p-6 lg:p-8 hover-lift animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="mb-4 inline-block p-3 rounded-xl bg-accent/10">
-                  <Icon className="h-8 w-8 text-accent" />
+                <div className="mb-3 sm:mb-4 inline-block p-2 sm:p-2.5 md:p-3 rounded-xl bg-accent/10">
+                  <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 text-accent" />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground text-justify">{feature.description}</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3">{feature.title}</h3>
+                <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">{feature.description}</p>
               </div>
             );
           })}
         </div>
 
-        <div className="card-elegant p-6 sm:p-8 md:p-12 animate-fade-in">
-          <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
+        <div className="card-elegant p-5 sm:p-6 md:p-8 lg:p-12 animate-fade-in">
+          <div className="flex flex-col md:flex-row items-center gap-5 sm:gap-6 md:gap-8">
             <div className="flex-shrink-0">
-              <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl hover:scale-105 transition-transform duration-300">
+              <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl hover:scale-105 transition-transform duration-300">
                 <img
                   src="/images/profile.jpg"
                   alt="Guilherme Heringer Cordeiro"
@@ -59,7 +59,7 @@ export const About = () => {
               </div>
             </div>
             <div className="flex-1">
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-justify">
+              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed text-center md:text-left">
                 Desenvolvedor de Software Pleno de 25 anos de idade, residente em Ipatinga - Minas Gerais.
                 Com experiência consolidada em desenvolvimento de aplicações web e mobile, atuo com React, React Native,
                 Node.js, TypeScript e frameworks modernos. Forte atuação em metodologias ágeis, participei de projetos

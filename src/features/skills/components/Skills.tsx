@@ -84,35 +84,40 @@ export const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="px-2 sm:px-4 bg-secondary/30">
+    <section id="skills" className="px-3 sm:px-4 md:px-6 bg-secondary/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl pt-16 sm:pt-20 sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient">
+        <h2 className="text-2xl pt-12 sm:pt-16 md:pt-20 sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-gradient">
           Habilidades
         </h2>
 
-        <div className="relative h-[180vh] sm:h-[190vh]">
+        <div className="relative h-[160vh] sm:h-[180vh] md:h-[190vh]">
           {skillCategories.map((category, categoryIndex) => {
+            const topSpacing = categoryIndex === 0 ?
+              "top-[60px] sm:top-[80px]" :
+              categoryIndex === 1 ?
+              "top-[84px] sm:top-[112px]" :
+              "top-[108px] sm:top-[144px]";
+
             return (
               <div
                 key={categoryIndex}
                 ref={(el) => { cardRefs.current[categoryIndex] = el; }}
-                className="sticky animate-fade-in mb-[35vh] sm:mb-[40vh]"
+                className={`sticky animate-fade-in mb-[30vh] sm:mb-[35vh] md:mb-[40vh] ${topSpacing}`}
                 style={{
-                  top: window.innerWidth >= 640 ? `${80 + categoryIndex * 32}px` : `${60 + categoryIndex * 24}px`,
                   animationDelay: `${categoryIndex * 0.1}s`,
                   transition:
                     "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                 }}
               >
-                <div className="card-elegant p-6 sm:p-8 shadow-xl">
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6 text-primary">
+                <div className="card-elegant p-4 sm:p-6 md:p-8 shadow-xl">
+                  <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold mb-3 sm:mb-4 md:mb-6 text-primary">
                     {category.title}
                   </h3>
-                  <div className="flex flex-wrap gap-2 sm:gap-3">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3">
                     {category.skills.map((skill, skillIndex) => (
                       <span
                         key={skillIndex}
-                        className="px-3 py-1.5 sm:px-4 sm:py-2 bg-accent/10 text-accent rounded-lg text-xs sm:text-sm font-medium
+                        className="px-2.5 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-accent/10 text-accent rounded-lg text-xs sm:text-sm font-medium
                                hover:bg-accent hover:text-accent-foreground transition-all duration-300
                                hover:scale-105 cursor-default"
                       >

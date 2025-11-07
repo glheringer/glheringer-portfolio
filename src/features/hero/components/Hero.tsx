@@ -7,7 +7,7 @@ export const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 py-20 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20 sm:py-24 overflow-hidden"
     >
       {/* Animated Background */}
       <AnimatedDots />
@@ -20,19 +20,19 @@ export const Hero = () => {
       />
       <div className="max-w-5xl mx-auto text-center relative z-10">
         <div className="animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 text-gradient leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-gradient leading-tight px-2 sm:px-4">
             Desenvolvedor de Software
           </h1>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-2 text-justify">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto px-2 sm:px-4 lg:px-6 text-center leading-relaxed">
             Criando experiências web e mobile modernas e performáticas com
             React, React Native, Node.js e as melhores práticas de
             desenvolvimento
           </p>
 
-          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-4">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 px-2 sm:px-4">
             <Button
               size="lg"
-              className="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300"
+              className="w-full sm:w-auto min-w-[140px] bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg hover:shadow-xl transition-all duration-300"
               onClick={() =>
                 document
                   .getElementById("projects")
@@ -45,7 +45,7 @@ export const Hero = () => {
             <Button
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              className="w-full sm:w-auto min-w-[140px] border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               onClick={() =>
                 document
                   .getElementById("contact")
@@ -57,11 +57,11 @@ export const Hero = () => {
             </Button>
           </div>
 
-          <div className="flex gap-3 sm:gap-4 justify-center px-4">
+          <div className="flex gap-4 sm:gap-5 justify-center px-2 sm:px-4">
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              className="h-12 w-12 sm:h-14 sm:w-14 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
               asChild
             >
               <a
@@ -70,13 +70,13 @@ export const Hero = () => {
                 rel="noopener noreferrer"
                 aria-label="GitHub"
               >
-                <Github className="h-5 w-5" />
+                <Github className="h-6 w-6 sm:h-7 sm:w-7" />
               </a>
             </Button>
             <Button
               variant="ghost"
               size="icon"
-              className="rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              className="h-12 w-12 sm:h-14 sm:w-14 rounded-full hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
               asChild
             >
               <a
@@ -85,7 +85,7 @@ export const Hero = () => {
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className="h-6 w-6 sm:h-7 sm:w-7" />
               </a>
             </Button>
           </div>

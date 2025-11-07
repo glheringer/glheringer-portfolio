@@ -54,7 +54,7 @@ export const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="relative overflow-hidden">
+    <section id="projects" className="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
       <GradientOrb
         className="top-1/2 right-0 -translate-y-1/2"
         size="lg"
@@ -62,11 +62,11 @@ export const Projects = () => {
         delay={1}
       />
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="text-3xl py-8 sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-gradient">
           Projetos
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <MagicCard
               key={index}
@@ -76,39 +76,39 @@ export const Projects = () => {
               gradientOpacity={0.4}
             >
               <div
-                className="p-5 sm:p-6 h-full group"
+                className="p-3 sm:p-4 md:p-5 lg:p-6 h-full group flex flex-col"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div
-                  className="h-36 sm:h-48 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg mb-3 sm:mb-4
-                              flex items-center justify-center overflow-hidden"
+                  className="h-28 sm:h-32 md:h-40 lg:h-48 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg mb-3 sm:mb-4
+                              flex items-center justify-center overflow-hidden flex-shrink-0"
                 >
-                  <div className="text-5xl sm:text-6xl opacity-20">🚀</div>
+                  <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl opacity-20">🚀</div>
                 </div>
 
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 group-hover:text-blue-500 transition-colors">
+                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 group-hover:text-blue-500 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm text-justify">
+                <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed flex-grow">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
+                <div className="flex flex-wrap gap-1 sm:gap-1.5 md:gap-2 mb-3 sm:mb-4">
                   {project.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-2 py-0.5 sm:px-3 sm:py-1 bg-blue-500/10 text-blue-500 border border-blue-500/20 rounded-md text-[10px] sm:text-xs"
+                      className="px-1.5 py-0.5 sm:px-2 sm:py-1 bg-blue-500/10 text-blue-500 border border-blue-500/20 rounded-md text-[10px] sm:text-xs"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-2">
+                <div className="flex flex-col sm:flex-row gap-2 mt-auto">
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all"
+                    className="flex-1 text-xs sm:text-sm hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all"
                     asChild
                   >
                     <a
@@ -116,14 +116,14 @@ export const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <ExternalLink className="h-4 w-4 mr-2" />
+                      <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                       Demo
                     </a>
                   </Button>
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all"
+                    className="flex-1 text-xs sm:text-sm hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all"
                     asChild
                   >
                     <a
@@ -131,7 +131,7 @@ export const Projects = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Github className="h-4 w-4 mr-2" />
+                      <Github className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                       Code
                     </a>
                   </Button>
