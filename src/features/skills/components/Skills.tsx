@@ -45,53 +45,60 @@ export const Skills = () => {
 
   useEffect(() => {
     const handleScroll = () => {
+      const isMobile = window.innerWidth < 640;
+
       cardRefs.current.forEach((card, index) => {
         if (!card) return;
 
         const rect = card.getBoundingClientRect();
-        const targetTop = 80 + index * 32;
+        const targetTop = isMobile ? 60 + index * 24 : 80 + index * 32;
         const windowHeight = window.innerHeight;
 
-        // Calcula o quanto o card subiu em relação ao seu ponto sticky
-        const distanceFromTarget = Math.max(0, rect.top - targetTop);
-        const scrollRange = windowHeight - targetTop;
-        const scrollProgress = 1 - Math.min(1, distanceFromTarget / scrollRange);
+        // Distância do card até sua posição sticky
+        const distanceFromTarget = rect.top - targetTop;
 
-        // Escala: começa em 1, diminui conforme sobe
+        // Calcula progresso de empilhamento
+        const stackRange = windowHeight * 0.6;
+        const stackProgress = Math.max(0, Math.min(1, 1 - (distanceFromTarget / stackRange)));
+
+        // Escala e brightness diminuem conforme empilha
         const minScale = 0.90 - index * 0.03;
-        const scale = 1 - (scrollProgress * (1 - minScale));
+        const scale = 1 - (stackProgress * (1 - minScale));
 
-        // Brightness diminui para cards empilhados
-        const brightness = 1 - (scrollProgress * index * 0.08);
+        const minBrightness = 0.75;
+        const brightness = 1 - (stackProgress * (1 - minBrightness));
 
         card.style.transform = `scale(${Math.max(minScale, scale)})`;
-        card.style.filter = `brightness(${Math.max(0.75, brightness)})`;
+        card.style.filter = `brightness(${Math.max(minBrightness, brightness)})`;
       });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
     handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   return (
     <section id="skills" className="px-2 sm:px-4 bg-secondary/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl py-8 sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient">
+        <h2 className="text-3xl pt-16 sm:pt-20 sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient">
           Habilidades
         </h2>
 
-        <div className="relative" style={{ height: '160vh' }}>
+        <div className="relative h-[180vh] sm:h-[190vh]">
           {skillCategories.map((category, categoryIndex) => {
             return (
               <div
                 key={categoryIndex}
                 ref={(el) => { cardRefs.current[categoryIndex] = el; }}
-                className="sticky animate-fade-in"
+                className="sticky animate-fade-in mb-[35vh] sm:mb-[40vh]"
                 style={{
-                  top: `${80 + categoryIndex * 32}px`,
-                  marginBottom: "30vh",
+                  top: window.innerWidth >= 640 ? `${80 + categoryIndex * 32}px` : `${60 + categoryIndex * 24}px`,
                   animationDelay: `${categoryIndex * 0.1}s`,
                   transition:
                     "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
