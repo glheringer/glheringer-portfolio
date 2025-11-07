@@ -258,16 +258,6 @@ npm i -g vercel
 vercel
 ```
 
-## Melhorias Futuras
-
-- [ ] Adicionar blog com artigos técnicos
-- [ ] Implementar sistema de analytics
-- [ ] Adicionar mais projetos ao portfólio
-- [ ] Criar seção de depoimentos
-- [ ] Adicionar internacionalização (i18n)
-- [ ] Implementar testes unitários e E2E
-- [ ] Adicionar animações mais complexas (Framer Motion)
-
 ## Contato
 
 **Guilherme Heringer Cordeiro**
