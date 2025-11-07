@@ -13,6 +13,14 @@ dist-ssr
 *.local
 .env
 
+# TypeScript
+*.tsbuildinfo
+
+# Lock files (mantendo apenas package-lock.json)
+bun.lock
+yarn.lock
+pnpm-lock.yaml
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
