@@ -77,18 +77,17 @@ export const Skills = () => {
 
   return (
     <section id="skills" className="px-2 sm:px-4 bg-secondary/30">
-      <div className="max-w-4xl mx-auto ">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient">
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-3xl py-8 sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient">
           Habilidades
         </h2>
 
         <div className="relative" style={{ height: '160vh' }}>
           {skillCategories.map((category, categoryIndex) => {
-            const isLastCard = categoryIndex === skillCategories.length - 1;
             return (
               <div
                 key={categoryIndex}
-                ref={(el) => (cardRefs.current[categoryIndex] = el)}
+                ref={(el) => { cardRefs.current[categoryIndex] = el; }}
                 className="sticky animate-fade-in"
                 style={{
                   top: `${80 + categoryIndex * 32}px`,
