@@ -28,44 +28,44 @@ export const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="relative py-20 px-4 overflow-hidden">
+    <section id="projects" className="relative py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
       <GradientOrb className="top-1/2 right-0 -translate-y-1/2" size="lg" color="hover" delay={1} />
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gradient">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient">
           Projetos
         </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="card-elegant p-6 hover-lift animate-fade-in group"
+              className="card-elegant p-5 sm:p-6 hover-lift animate-fade-in group"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg mb-4 
+              <div className="h-36 sm:h-48 bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg mb-3 sm:mb-4
                             flex items-center justify-center overflow-hidden">
-                <div className="text-6xl opacity-20">🚀</div>
+                <div className="text-5xl sm:text-6xl opacity-20">🚀</div>
               </div>
-              
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-accent transition-colors">
+
+              <h3 className="text-lg sm:text-xl font-semibold mb-2 group-hover:text-accent transition-colors">
                 {project.title}
               </h3>
-              <p className="text-muted-foreground mb-4 text-sm">
+              <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm">
                 {project.description}
               </p>
-              
-              <div className="flex flex-wrap gap-2 mb-4">
+
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                 {project.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className="px-3 py-1 bg-secondary text-secondary-foreground rounded-md text-xs"
+                    className="px-2 py-0.5 sm:px-3 sm:py-1 bg-secondary text-secondary-foreground rounded-md text-[10px] sm:text-xs"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <Button
                   variant="outline"
                   size="sm"

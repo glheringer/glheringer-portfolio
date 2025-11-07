@@ -35,7 +35,7 @@ export const Header = () => {
         isScrolled ? 'bg-background/80 backdrop-blur-lg shadow-md' : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div className="flex items-center justify-between">
           <a
             href="#home"
@@ -43,9 +43,10 @@ export const Header = () => {
               e.preventDefault();
               scrollToSection('#home');
             }}
-            className="text-2xl font-bold text-gradient cursor-pointer"
+            className="text-xl sm:text-2xl font-bold text-gradient cursor-pointer"
           >
-            Guilherme Heringer Cordeiro
+            <span className="hidden sm:inline">Guilherme Heringer Cordeiro</span>
+            <span className="sm:hidden">G. Heringer</span>
           </a>
 
           {/* Desktop Navigation */}

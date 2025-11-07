@@ -3,10 +3,10 @@ import { Button } from '@/components/ui/button';
 
 export const Footer = () => {
   return (
-    <footer className="py-8 px-4 border-t border-border">
+    <footer className="py-6 sm:py-8 px-4 sm:px-6 border-t border-border">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-muted-foreground text-sm">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+          <p className="text-muted-foreground text-xs sm:text-sm text-center md:text-left">
             © {new Date().getFullYear()} Portfolio. Desenvolvido com React + TypeScript + Zustand
           </p>
           

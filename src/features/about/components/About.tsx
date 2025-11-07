@@ -21,14 +21,14 @@ export const About = () => {
   ];
 
   return (
-    <section id="about" className="relative py-20 px-4">
+    <section id="about" className="relative py-16 sm:py-20 px-4 sm:px-6">
       <GridBackground />
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 text-gradient">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 sm:mb-12 text-gradient">
           Sobre Mim
         </h2>
-        
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
@@ -47,10 +47,10 @@ export const About = () => {
           })}
         </div>
 
-        <div className="card-elegant p-8 md:p-12 animate-fade-in">
-          <div className="flex flex-col md:flex-row items-center gap-8 mb-8">
+        <div className="card-elegant p-6 sm:p-8 md:p-12 animate-fade-in">
+          <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-8">
             <div className="flex-shrink-0">
-              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl hover:scale-105 transition-transform duration-300">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-accent/20 shadow-2xl hover:scale-105 transition-transform duration-300">
                 <img
                   src="/images/profile.jpg"
                   alt="Guilherme Heringer Cordeiro"
@@ -59,7 +59,7 @@ export const About = () => {
               </div>
             </div>
             <div className="flex-1">
-              <p className="text-lg text-muted-foreground leading-relaxed text-center md:text-left">
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed text-center md:text-left">
                 Desenvolvedor de Software Pleno de 25 anos, residente em Ipatinga - Minas Gerais.
                 Com experiência consolidada em desenvolvimento de aplicações web e mobile, atuo com React, React Native,
                 Node.js, TypeScript e frameworks modernos. Forte atuação em metodologias ágeis, participei de projetos
