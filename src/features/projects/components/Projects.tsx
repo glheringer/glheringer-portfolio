@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Images } from "lucide-react";
 import { GradientOrb } from "@/components/backgrounds/GradientOrb";
 import { MagicCard } from "@/components/ui/magic-card";
+import { ProjectGalleryModal } from "./ProjectGalleryModal";
 
 export const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+
   const projects = [
     {
       title: "Landing Pages - Grupo Multiluz",
@@ -11,8 +15,13 @@ export const Projects = () => {
         "Landing pages institucionais e de produtos para o Grupo Multiluz, focadas em conversão e performance com design moderno e responsivo",
       tags: ["React", "TypeScript", "Tailwind CSS", "SEO", "Performance"],
       link: "https://grupomultiluz.com.br/",
-      gallery: "#",
       image: "/images/multiluz-indicacao.png",
+      galleryImages: [
+        "/images/multiluz-indicacao.png",
+        "/images/multiluz-recompensas.png",
+        "/images/multiluz-feirao.png",
+        "/images/multiluz-beneficios.png",
+      ],
     },
     {
       title: "E-commerce - Oliva Originals",
@@ -20,8 +29,8 @@ export const Projects = () => {
         "Plataforma de e-commerce completa para venda de produtos online, com checkout otimizado, painel administrativo e integração com meios de pagamento",
       tags: ["React", "Node.js", "E-commerce", "Payment Gateway", "TypeScript"],
       link: "https://olivaoriginals.com.br/",
-      gallery: "#",
       image: null,
+      galleryImages: [],
     },
     {
       title: "CRM Grupo Multiluz",
@@ -35,8 +44,8 @@ export const Projects = () => {
         "TypeScript",
       ],
       link: "#",
-      gallery: "#",
       image: null,
+      galleryImages: [],
     },
     {
       title: "App Connect - Rede Social Corporativa",
@@ -44,8 +53,8 @@ export const Projects = () => {
         "Aplicativo mobile de rede social corporativa para otimizar comunicação interna, com funcionalidades de visibilidade e insights sobre publicações",
       tags: ["React Native", "Node.js", "APIs", "Mobile"],
       link: "#",
-      gallery: "#",
       image: null,
+      galleryImages: [],
     },
     {
       title: "Santander Esfera",
@@ -53,8 +62,8 @@ export const Projects = () => {
         "Desenvolvimento de novas telas e fluxos intuitivos para o aplicativo, com criação de SDK reutilizável. Redução de 40% nos erros reportados",
       tags: ["React Native", "APIs", "Testes Unitários", "Mobile"],
       link: "#",
-      gallery: "#",
       image: null,
+      galleryImages: [],
     },
   ];
 
@@ -136,17 +145,12 @@ export const Projects = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1 text-xs sm:text-sm hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all"
-                    asChild
+                    className="flex-1 text-xs sm:text-sm hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                    onClick={() => setSelectedProject(index)}
+                    disabled={!project.galleryImages || project.galleryImages.length === 0}
                   >
-                    <a
-                      href={project.gallery}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Images className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
-                      Galeria
-                    </a>
+                    <Images className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
+                    Galeria
                   </Button>
                 </div>
               </div>
@@ -154,6 +158,16 @@ export const Projects = () => {
           ))}
         </div>
       </div>
+
+      {/* Modal de Galeria */}
+      {selectedProject !== null && (
+        <ProjectGalleryModal
+          isOpen={selectedProject !== null}
+          onClose={() => setSelectedProject(null)}
+          projectTitle={projects[selectedProject].title}
+          images={projects[selectedProject].galleryImages}
+        />
+      )}
     </section>
   );
 };
