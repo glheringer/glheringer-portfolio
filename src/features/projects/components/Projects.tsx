@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Images } from "lucide-react";
 import { GradientOrb } from "@/components/backgrounds/GradientOrb";
 import { MagicCard } from "@/components/ui/magic-card";
 
@@ -11,7 +11,8 @@ export const Projects = () => {
         "Landing pages institucionais e de produtos para o Grupo Multiluz, focadas em conversão e performance com design moderno e responsivo",
       tags: ["React", "TypeScript", "Tailwind CSS", "SEO", "Performance"],
       link: "https://grupomultiluz.com.br/",
-      github: "#",
+      gallery: "#",
+      image: "/images/multiluz-indicacao.png",
     },
     {
       title: "E-commerce - Oliva Originals",
@@ -19,7 +20,8 @@ export const Projects = () => {
         "Plataforma de e-commerce completa para venda de produtos online, com checkout otimizado, painel administrativo e integração com meios de pagamento",
       tags: ["React", "Node.js", "E-commerce", "Payment Gateway", "TypeScript"],
       link: "https://olivaoriginals.com.br/",
-      github: "#",
+      gallery: "#",
+      image: null,
     },
     {
       title: "CRM Grupo Multiluz",
@@ -33,7 +35,8 @@ export const Projects = () => {
         "TypeScript",
       ],
       link: "#",
-      github: "#",
+      gallery: "#",
+      image: null,
     },
     {
       title: "App Connect - Rede Social Corporativa",
@@ -41,7 +44,8 @@ export const Projects = () => {
         "Aplicativo mobile de rede social corporativa para otimizar comunicação interna, com funcionalidades de visibilidade e insights sobre publicações",
       tags: ["React Native", "Node.js", "APIs", "Mobile"],
       link: "#",
-      github: "#",
+      gallery: "#",
+      image: null,
     },
     {
       title: "Santander Esfera",
@@ -49,7 +53,8 @@ export const Projects = () => {
         "Desenvolvimento de novas telas e fluxos intuitivos para o aplicativo, com criação de SDK reutilizável. Redução de 40% nos erros reportados",
       tags: ["React Native", "APIs", "Testes Unitários", "Mobile"],
       link: "#",
-      github: "#",
+      gallery: "#",
+      image: null,
     },
   ];
 
@@ -83,7 +88,15 @@ export const Projects = () => {
                   className="h-28 sm:h-32 md:h-40 lg:h-48 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg mb-3 sm:mb-4
                               flex items-center justify-center overflow-hidden flex-shrink-0"
                 >
-                  <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl opacity-20">🚀</div>
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl opacity-20">🚀</div>
+                  )}
                 </div>
 
                 <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 group-hover:text-blue-500 transition-colors">
@@ -127,12 +140,12 @@ export const Projects = () => {
                     asChild
                   >
                     <a
-                      href={project.github}
+                      href={project.gallery}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Github className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
-                      Code
+                      <Images className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
+                      Galeria
                     </a>
                   </Button>
                 </div>
