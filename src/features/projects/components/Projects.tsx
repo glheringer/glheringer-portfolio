@@ -29,8 +29,13 @@ export const Projects = () => {
         "Plataforma de e-commerce completa para venda de produtos online, com checkout otimizado, painel administrativo e integração com meios de pagamento",
       tags: ["React", "Node.js", "E-commerce", "Payment Gateway", "TypeScript"],
       link: "https://olivaoriginals.com.br/",
-      image: null,
-      galleryImages: [],
+      image: "/images/oliva-home.png",
+      galleryImages: [
+        "/images/oliva-home.png",
+        "/images/oliva-body.jpg",
+        "/images/oliva-cart.png",
+        "/images/oliva-footer-2.png",
+      ],
     },
     {
       title: "CRM Grupo Multiluz",
@@ -43,27 +48,38 @@ export const Projects = () => {
         "Express",
         "TypeScript",
       ],
-      link: "#",
-      image: null,
-      galleryImages: [],
+      link: null,
+      image: "/images/crm-multiluz1.png",
+      galleryImages: [
+        "/images/crm-multiluz1.png",
+        "/images/crm-multiluz2.png",
+        "/images/crm-multiluz3.png",
+        "/images/crm-multiluz4.png",
+      ],
     },
     {
       title: "App Connect - Rede Social Corporativa",
       description:
         "Aplicativo mobile de rede social corporativa para otimizar comunicação interna, com funcionalidades de visibilidade e insights sobre publicações",
       tags: ["React Native", "Node.js", "APIs", "Mobile"],
-      link: "#",
-      image: null,
-      galleryImages: [],
+      link: null,
+      image: "/images/connect1.jpeg",
+      galleryImages: [
+        "/images/connect-video.mp4",
+        "/images/connect1.jpeg",
+        "/images/connect2.jpeg",
+        "/images/connect3.jpeg",
+      ],
     },
     {
       title: "Santander Esfera",
       description:
         "Desenvolvimento de novas telas e fluxos intuitivos para o aplicativo, com criação de SDK reutilizável. Redução de 40% nos erros reportados",
       tags: ["React Native", "APIs", "Testes Unitários", "Mobile"],
-      link: "#",
-      image: null,
+      link: null,
+      image: "/images/esfera.webp",
       galleryImages: [],
+      customMessage: "Disponível nas lojas de aplicativos",
     },
   ];
 
@@ -94,14 +110,22 @@ export const Projects = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div
-                  className="h-28 sm:h-32 md:h-40 lg:h-48 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-lg mb-3 sm:mb-4
-                              flex items-center justify-center overflow-hidden flex-shrink-0"
+                  className={`h-28 sm:h-32 md:h-40 lg:h-48 rounded-lg mb-3 sm:mb-4
+                              flex items-center justify-center overflow-hidden flex-shrink-0 ${
+                                project.title === "Santander Esfera"
+                                  ? "bg-white"
+                                  : "bg-gradient-to-br from-blue-500/20 to-cyan-500/20"
+                              }`}
                 >
                   {project.image ? (
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      className={`w-full h-full ${
+                        project.title === "Santander Esfera"
+                          ? "object-contain"
+                          : "object-cover"
+                      }`}
                     />
                   ) : (
                     <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl opacity-20">🚀</div>
@@ -126,33 +150,41 @@ export const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-2 mt-auto">
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex-1 text-xs sm:text-sm hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all"
-                    asChild
-                  >
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                {project.customMessage ? (
+                  <div className="text-center text-xs sm:text-sm text-muted-foreground italic mt-auto pt-2 border-t border-border/50">
+                    {project.customMessage}
+                  </div>
+                ) : (
+                  <div className="flex flex-col sm:flex-row gap-2 mt-auto">
+                    {project.link && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        className="flex-1 text-xs sm:text-sm hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all"
+                        asChild
+                      >
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
+                          Demo
+                        </a>
+                      </Button>
+                    )}
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex-1 text-xs sm:text-sm hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                      onClick={() => setSelectedProject(index)}
+                      disabled={!project.galleryImages || project.galleryImages.length === 0}
                     >
-                      <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
-                      Demo
-                    </a>
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex-1 text-xs sm:text-sm hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-                    onClick={() => setSelectedProject(index)}
-                    disabled={!project.galleryImages || project.galleryImages.length === 0}
-                  >
-                    <Images className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
-                    Galeria
-                  </Button>
-                </div>
+                      <Images className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
+                      Galeria
+                    </Button>
+                  </div>
+                )}
               </div>
             </MagicCard>
           ))}

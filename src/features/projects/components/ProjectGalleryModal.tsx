@@ -47,13 +47,23 @@ export const ProjectGalleryModal = ({
         </DialogHeader>
 
         <div className="relative px-6 pb-6">
-          {/* Imagem Principal */}
+          {/* Imagem/Vídeo Principal */}
           <div className="relative w-full aspect-video bg-muted rounded-lg overflow-hidden">
-            <img
-              src={images[currentIndex]}
-              alt={`${projectTitle} - Imagem ${currentIndex + 1}`}
-              className="w-full h-full object-contain"
-            />
+            {images[currentIndex].endsWith('.mp4') ? (
+              <video
+                src={images[currentIndex]}
+                controls
+                className="w-full h-full object-contain"
+                autoPlay
+                loop
+              />
+            ) : (
+              <img
+                src={images[currentIndex]}
+                alt={`${projectTitle} - Imagem ${currentIndex + 1}`}
+                className="w-full h-full object-contain"
+              />
+            )}
 
             {/* Botões de Navegação */}
             {images.length > 1 && (
@@ -91,11 +101,19 @@ export const ProjectGalleryModal = ({
                       : "border-border hover:border-primary/50"
                   }`}
                 >
-                  <img
-                    src={image}
-                    alt={`Thumbnail ${index + 1}`}
-                    className="w-full h-full object-cover"
-                  />
+                  {image.endsWith('.mp4') ? (
+                    <video
+                      src={image}
+                      className="w-full h-full object-cover"
+                      muted
+                    />
+                  ) : (
+                    <img
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </button>
               ))}
             </div>
