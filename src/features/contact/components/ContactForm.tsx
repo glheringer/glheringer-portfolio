@@ -4,12 +4,12 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { Mail, User, Phone, MessageSquare, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Mail, User, MessageSquare, Send, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import { AxiosError } from 'axios';
 import { contactService, ContactMessageData } from '@/services/contactService';
 
-type ContactFormData = ContactMessageData;
+type ContactFormData = Pick<ContactMessageData, 'name' | 'email' | 'message'>;
 
 export const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -129,42 +129,6 @@ export const ContactForm = () => {
         )}
       </div>
 
-      {/* Telefone */}
-      <div className="space-y-2">
-        <Label htmlFor="phone" className="flex items-center gap-2 text-sm sm:text-base">
-          <Phone className="h-4 w-4" />
-          Telefone (opcional)
-        </Label>
-        <Input
-          id="phone"
-          type="tel"
-          placeholder="(00) 00000-0000"
-          {...register('phone')}
-        />
-      </div>
-
-      {/* Assunto */}
-      <div className="space-y-2">
-        <Label htmlFor="subject" className="flex items-center gap-2 text-sm sm:text-base">
-          <MessageSquare className="h-4 w-4" />
-          Assunto (opcional)
-        </Label>
-        <Input
-          id="subject"
-          type="text"
-          placeholder="Sobre o que você quer conversar?"
-          {...register('subject', {
-            maxLength: { value: 500, message: 'Assunto muito longo' },
-          })}
-        />
-        {errors.subject && (
-          <p className="text-xs sm:text-sm text-red-500 flex items-center gap-1">
-            <AlertCircle className="h-3 w-3" />
-            {errors.subject.message}
-          </p>
-        )}
-      </div>
-
       {/* Mensagem */}
       <div className="space-y-2">
         <Label htmlFor="message" className="flex items-center gap-2 text-sm sm:text-base">
@@ -173,9 +137,9 @@ export const ContactForm = () => {
         </Label>
         <Textarea
           id="message"
-          rows={6}
+          rows={4}
           placeholder="Escreva sua mensagem aqui..."
-          className={errors.message ? 'border-red-500' : ''}
+          className={errors.message ? 'border-red-500' : 'sm:min-h-[120px]'}
           {...register('message', {
             required: 'Mensagem é obrigatória',
             minLength: { value: 10, message: 'Mensagem deve ter pelo menos 10 caracteres' },

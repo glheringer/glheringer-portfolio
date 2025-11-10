@@ -12,8 +12,8 @@ export const Projects = () => {
     {
       title: "Landing Pages - Grupo Multiluz",
       description:
-        "Landing pages institucionais e de produtos para o Grupo Multiluz, focadas em conversão e performance com design moderno e responsivo",
-      tags: ["React", "TypeScript", "Tailwind CSS", "SEO", "Performance"],
+        "Landing pages institucionais focadas em conversão e performance com design moderno e responsivo",
+      tags: ["React", "TypeScript", "Tailwind CSS"],
       link: "https://grupomultiluz.com.br/",
       image: "/images/multiluz-indicacao.png",
       galleryImages: [
@@ -26,8 +26,8 @@ export const Projects = () => {
     {
       title: "E-commerce - Oliva Originals",
       description:
-        "Plataforma de e-commerce completa para venda de produtos online, com checkout otimizado, painel administrativo e integração com meios de pagamento",
-      tags: ["React", "Node.js", "E-commerce", "Payment Gateway", "TypeScript"],
+        "Plataforma completa de e-commerce com checkout otimizado e integração de pagamentos",
+      tags: ["React", "Node.js", "E-commerce"],
       link: "https://olivaoriginals.com.br/",
       image: "/images/oliva-home.png",
       galleryImages: [
@@ -40,13 +40,11 @@ export const Projects = () => {
     {
       title: "CRM Grupo Multiluz",
       description:
-        "Redesign completo do CRM interno, aprimorando UX e reduzindo tempo de atendimento. Inclui calculadora fotovoltaica para totens interativos",
+        "Redesign do CRM interno com calculadora fotovoltaica e melhorias de UX",
       tags: [
         "React",
         "Material UI",
-        "Styled Components",
         "Express",
-        "TypeScript",
       ],
       link: null,
       image: "/images/crm-multiluz1.png",
@@ -60,8 +58,8 @@ export const Projects = () => {
     {
       title: "App Connect - Rede Social Corporativa",
       description:
-        "Aplicativo mobile de rede social corporativa para otimizar comunicação interna, com funcionalidades de visibilidade e insights sobre publicações",
-      tags: ["React Native", "Node.js", "APIs", "Mobile"],
+        "App mobile de rede social corporativa com insights sobre publicações",
+      tags: ["React Native", "Node.js", "APIs"],
       link: null,
       image: "/images/connect1.jpeg",
       galleryImages: [
@@ -74,8 +72,8 @@ export const Projects = () => {
     {
       title: "Santander Esfera",
       description:
-        "Desenvolvimento de novas telas e fluxos intuitivos para o aplicativo, com criação de SDK reutilizável. Redução de 40% nos erros reportados",
-      tags: ["React Native", "APIs", "Testes Unitários", "Mobile"],
+        "Desenvolvimento de telas e SDK reutilizável, reduzindo 40% dos erros",
+      tags: ["React Native", "APIs", "Testes"],
       link: null,
       image: "/images/esfera.webp",
       galleryImages: [],
@@ -121,6 +119,7 @@ export const Projects = () => {
                     <img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
                       className={`w-full h-full ${
                         project.title === "Santander Esfera"
                           ? "object-contain"

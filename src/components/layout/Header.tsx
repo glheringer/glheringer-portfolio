@@ -25,7 +25,18 @@ export const Header = () => {
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (element) {
+      // Usa o Lenis se disponível, caso contrário fallback para scrollIntoView nativo
+      const lenis = (window as any).lenis;
+      if (lenis) {
+        lenis.scrollTo(element, {
+          offset: 0,
+          duration: 1.2,
+        });
+      } else {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
     setIsMobileMenuOpen(false);
   };
 
@@ -80,7 +91,7 @@ export const Header = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <nav className="md:hidden pt-4 pb-2 animate-fade-in">
+          <nav className="md:hidden pt-4 pb-2 animate-fade-in max-h-[calc(100vh-80px)] overflow-y-auto">
             {navItems.map((item) => (
               <Button
                 key={item.href}

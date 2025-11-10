@@ -60,12 +60,8 @@ export const About = () => {
             </div>
             <div className="flex-1">
               <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed text-center md:text-left">
-                Desenvolvedor de Software Pleno de 25 anos de idade, residente em Ipatinga - Minas Gerais.
-                Com experiência consolidada em desenvolvimento de aplicações web e mobile, atuo com React, React Native,
-                Node.js, TypeScript e frameworks modernos. Forte atuação em metodologias ágeis, participei de projetos
-                de grande porte incluindo integração de APIs, testes automatizados e otimização de performance.
-                Transformo ideias em aplicações robustas e escaláveis, sempre em busca de novos desafios e
-                oportunidades para crescer profissionalmente. Disponível para viagens a trabalho.
+                Desenvolvedor de Software Pleno, 25 anos, Ipatinga-MG. Especializado em React, React Native e Node.js,
+                transformo ideias em aplicações modernas e escaláveis. Disponível para viagens a trabalho.
               </p>
             </div>
           </div>

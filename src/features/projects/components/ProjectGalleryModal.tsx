@@ -90,12 +90,12 @@ export const ProjectGalleryModal = ({
 
           {/* Thumbnails */}
           {images.length > 1 && (
-            <div className="flex gap-2 mt-4 overflow-x-auto pb-2">
+            <div className="flex gap-2 mt-4 overflow-x-auto pb-2 snap-x snap-mandatory scroll-smooth">
               {images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-md overflow-hidden border-2 transition-all ${
+                  className={`flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-md overflow-hidden border-2 transition-all snap-center ${
                     index === currentIndex
                       ? "border-primary ring-2 ring-primary/20"
                       : "border-border hover:border-primary/50"

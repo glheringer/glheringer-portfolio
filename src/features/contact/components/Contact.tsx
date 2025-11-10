@@ -1,70 +1,22 @@
 import { Button } from '@/components/ui/button';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
 import { ContactForm } from './ContactForm';
 
 export const Contact = () => {
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'guilhermeheringer1999@gmail.com',
-      href: 'mailto:guilhermeheringer1999@gmail.com',
-    },
-    {
-      icon: Phone,
-      label: 'Telefone',
-      value: '+55 (31) 99757-7741',
-      href: 'tel:+553199757-7741',
-    },
-    {
-      icon: MapPin,
-      label: 'Localização',
-      value: 'Ipatinga - Minas Gerais, Brasil',
-      href: '#',
-    },
-  ];
-
   return (
     <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-gradient">
-          Entre em Contato
+          Vamos Conversar?
         </h2>
 
-        <div className="card-elegant p-5 sm:p-6 md:p-8 lg:p-12 animate-fade-in">
-          <p className="text-center text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-5 sm:mb-6 md:mb-8 leading-relaxed">
-            Interessado em trabalhar juntos? Vamos conversar sobre seu próximo projeto!
+        <div className="card-elegant p-5 sm:p-6 md:p-8 lg:p-10 animate-fade-in">
+          <p className="text-center text-xs sm:text-sm md:text-base text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
+            Interessado em trabalhar juntos? Envie uma mensagem ou entre em contato diretamente!
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 mb-5 sm:mb-6 md:mb-8">
-            {contactInfo.map((info, index) => {
-              const Icon = info.icon;
-              return (
-                <a
-                  key={index}
-                  href={info.href}
-                  className="flex flex-col items-center text-center p-3 sm:p-4 rounded-lg
-                           hover:bg-accent/10 transition-all duration-300 group"
-                >
-                  <div className="mb-2 sm:mb-3 p-2 sm:p-2.5 md:p-3 rounded-full bg-accent/10 group-hover:bg-accent/20 transition-colors">
-                    <Icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-accent" />
-                  </div>
-                  <p className="text-[10px] sm:text-xs md:text-sm text-muted-foreground mb-1">{info.label}</p>
-                  <p className="text-[10px] sm:text-xs md:text-sm font-medium group-hover:text-accent transition-colors break-words max-w-full px-1">
-                    {info.value}
-                  </p>
-                </a>
-              );
-            })}
-          </div>
-
           {/* Formulário de Contato */}
-          <div className="mt-8 sm:mt-10 md:mt-12">
-            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-center mb-4 sm:mb-6">
-              Envie uma Mensagem
-            </h3>
-            <ContactForm />
-          </div>
+          <ContactForm />
 
           {/* Linha divisória */}
           <div className="relative my-6 sm:my-8">
@@ -72,21 +24,43 @@ export const Contact = () => {
               <div className="w-full border-t border-border/50"></div>
             </div>
             <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-card px-2 text-muted-foreground">ou</span>
+              <span className="bg-card px-2 text-muted-foreground">ou entre em contato por</span>
             </div>
           </div>
 
-          {/* Email direto */}
-          <div className="text-center">
+          {/* Links diretos */}
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <Button
               size="lg"
               variant="outline"
-              className="w-full sm:w-auto min-w-[200px] text-sm sm:text-base"
+              className="flex-1 sm:flex-none sm:min-w-[160px] hover:bg-accent hover:text-accent-foreground transition-all"
               asChild
             >
               <a href="mailto:guilhermeheringer1999@gmail.com">
-                Email Direto
-                <Mail className="ml-2 h-4 w-4" />
+                <Mail className="mr-2 h-4 w-4" />
+                Email
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="flex-1 sm:flex-none sm:min-w-[160px] hover:bg-blue-500 hover:text-white hover:border-blue-500 transition-all"
+              asChild
+            >
+              <a href="https://www.linkedin.com/in/guilherme-heringer-cordeiro/" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="mr-2 h-4 w-4" />
+                LinkedIn
+              </a>
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="flex-1 sm:flex-none sm:min-w-[160px] hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-all"
+              asChild
+            >
+              <a href="https://github.com/glheringer" target="_blank" rel="noopener noreferrer">
+                <Github className="mr-2 h-4 w-4" />
+                GitHub
               </a>
             </Button>
           </div>
