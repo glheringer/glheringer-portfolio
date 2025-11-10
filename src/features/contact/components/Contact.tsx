@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Mail, MapPin, Phone } from 'lucide-react';
+import { ContactForm } from './ContactForm';
 
 export const Contact = () => {
   const contactInfo = [
@@ -57,15 +58,34 @@ export const Contact = () => {
             })}
           </div>
 
+          {/* Formulário de Contato */}
+          <div className="mt-8 sm:mt-10 md:mt-12">
+            <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-center mb-4 sm:mb-6">
+              Envie uma Mensagem
+            </h3>
+            <ContactForm />
+          </div>
+
+          {/* Linha divisória */}
+          <div className="relative my-6 sm:my-8">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-border/50"></div>
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-card px-2 text-muted-foreground">ou</span>
+            </div>
+          </div>
+
+          {/* Email direto */}
           <div className="text-center">
             <Button
               size="lg"
-              className="w-full sm:w-auto min-w-[200px] bg-accent hover:bg-accent/90 text-accent-foreground shadow-lg
-                       hover:shadow-xl transition-all duration-300 text-sm sm:text-base"
+              variant="outline"
+              className="w-full sm:w-auto min-w-[200px] text-sm sm:text-base"
               asChild
             >
               <a href="mailto:guilhermeheringer1999@gmail.com">
-                Enviar Mensagem
+                Email Direto
                 <Mail className="ml-2 h-4 w-4" />
               </a>
             </Button>
