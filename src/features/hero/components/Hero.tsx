@@ -35,10 +35,10 @@ export const Hero = () => {
       />
       <div className="max-w-5xl mx-auto text-center relative z-10">
         <div className="animate-fade-in">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 text-gradient leading-tight">
+          <h1 className="heading-hero mb-6 text-gradient">
             Desenvolvedor de Software
           </h1>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-muted-foreground mb-6 sm:mb-8 max-w-2xl mx-auto text-center leading-relaxed">
+          <p className="text-body-large text-muted-foreground mb-8 max-w-2xl mx-auto">
             Criando experiências web e mobile modernas e performáticas com
             React, React Native, Node.js e as melhores práticas de
             desenvolvimento

@@ -1,11 +1,25 @@
-import { useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import { X, Keyboard, Moon, Sun, Download, Github, Linkedin, Mail, MessageCircle, Copy, Eye, EyeOff } from 'lucide-react';
-import { useThemeStore } from '@/features/theme/store/themeStore';
-import { useReducedMotionStore } from '@/hooks/useReducedMotion';
-import { cn } from '@/lib/utils';
-import { toast } from 'sonner';
-import { Button } from './ui/button';
+import { useEffect } from "react";
+import { createPortal } from "react-dom";
+import {
+  X,
+  Keyboard,
+  Moon,
+  Sun,
+  Download,
+  Github,
+  Linkedin,
+  Mail,
+  MessageCircle,
+  Copy,
+  Eye,
+  EyeOff,
+  Info,
+} from "lucide-react";
+import { useThemeStore } from "@/features/theme/store/themeStore";
+import { useReducedMotionStore } from "@/hooks/useReducedMotion";
+import { cn } from "@/lib/utils";
+import { toast } from "sonner";
+import { Button } from "./ui/button";
 
 interface ActionCenterProps {
   isOpen: boolean;
@@ -20,35 +34,40 @@ export const ActionCenter = ({ isOpen, onClose }: ActionCenterProps) => {
     const handleKeyPress = (event: KeyboardEvent) => {
       const target = event.target as HTMLElement;
       const isTyping =
-        target.tagName === 'INPUT' ||
-        target.tagName === 'TEXTAREA' ||
+        target.tagName === "INPUT" ||
+        target.tagName === "TEXTAREA" ||
         target.isContentEditable;
 
       if (isTyping) return;
 
-      if (event.key === 'Escape' && isOpen) {
+      if (event.key === "Escape" && isOpen) {
         event.preventDefault();
         onClose();
       }
     };
 
     if (isOpen) {
-      window.addEventListener('keydown', handleKeyPress);
+      window.addEventListener("keydown", handleKeyPress);
     }
 
     return () => {
-      window.removeEventListener('keydown', handleKeyPress);
+      window.removeEventListener("keydown", handleKeyPress);
     };
   }, [isOpen, onClose]);
 
   const handleDownloadCV = () => {
-    window.open('/documents/Curriculo_Guilherme_Heringer_Linkedin.pdf', '_blank');
-    toast.success('Abrindo currículo...', { duration: 2000 });
+    window.open(
+      "/documents/Curriculo_Guilherme_Heringer_Linkedin.pdf",
+      "_blank"
+    );
+    toast.success("Abrindo currículo...", { duration: 2000 });
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('guilhermeheringer1999@gmail.com');
-    toast.success('Email copiado para área de transferência!', { duration: 2000 });
+    navigator.clipboard.writeText("guilhermeheringer1999@gmail.com");
+    toast.success("Email copiado para área de transferência!", {
+      duration: 2000,
+    });
   };
 
   if (!isOpen) return null;
@@ -66,9 +85,7 @@ export const ActionCenter = ({ isOpen, onClose }: ActionCenterProps) => {
         <div className="bg-background/95 backdrop-blur-xl border border-border rounded-2xl shadow-2xl p-6">
           <div className="flex items-center gap-2 text-foreground mb-4">
             <Keyboard className="h-5 w-5" />
-            <h3 className="text-base font-semibold">
-              DICA: Atalhos
-            </h3>
+            <h3 className="text-base font-semibold">DICA: Atalhos</h3>
           </div>
 
           <p className="text-sm text-muted-foreground mb-6">
@@ -76,10 +93,10 @@ export const ActionCenter = ({ isOpen, onClose }: ActionCenterProps) => {
           </p>
 
           <div className="space-y-4">
-            <ShortcutItem label="Abrir Acesso Rápido" keys={['Q']} />
-            <ShortcutItem label="Fechar Acesso Rápido" keys={['Q', 'Esc']} />
-            <ShortcutItem label="Alternar Modo Escuro" keys={['D']} />
-            <ShortcutItem label="Reduzir Movimento" keys={['R']} />
+            <ShortcutItem label="Abrir Acesso Rápido" keys={["Q"]} />
+            <ShortcutItem label="Fechar Acesso Rápido" keys={["Q", "Esc"]} />
+            <ShortcutItem label="Alternar Modo Escuro" keys={["D"]} />
+            <ShortcutItem label="Reduzir Movimento" keys={["R"]} />
           </div>
         </div>
       </div>
@@ -90,7 +107,9 @@ export const ActionCenter = ({ isOpen, onClose }: ActionCenterProps) => {
           <div className="p-6 flex-1 flex flex-col">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-foreground">Action Center</h2>
+              <h2 className="text-2xl font-bold text-foreground">
+                Central de Ações
+              </h2>
               <button
                 onClick={onClose}
                 className="rounded-full p-2 hover:bg-accent/10 transition-colors"
@@ -103,13 +122,13 @@ export const ActionCenter = ({ isOpen, onClose }: ActionCenterProps) => {
             {/* Quick Actions Cards */}
             <div className="grid grid-cols-2 gap-3 mb-6">
               <div className="flex flex-col items-center justify-center p-6 rounded-xl bg-muted/50 border border-border">
-                {theme === 'dark' ? (
+                {theme === "dark" ? (
                   <Moon className="h-6 w-6 mb-3 text-accent" />
                 ) : (
                   <Sun className="h-6 w-6 mb-3 text-accent" />
                 )}
                 <span className="text-sm font-medium text-center">
-                  Tema Escuro: {theme === 'dark' ? 'Ligado' : 'Desligado'}
+                  Tema Escuro: {theme === "dark" ? "Ligado" : "Desligado"}
                 </span>
               </div>
             </div>
@@ -141,12 +160,24 @@ export const ActionCenter = ({ isOpen, onClose }: ActionCenterProps) => {
                     <Eye className="h-4 w-4 text-accent" />
                   )}
                   <span className="text-sm font-medium">Reduzir Movimento</span>
+                  <div className="group relative">
+                    <Info className="h-4 w-4 text-muted-foreground hover:text-foreground transition-colors cursor-help" />
+                    <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-64 p-3 bg-popover border border-border rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none z-50">
+                      <p className="text-xs text-popover-foreground leading-relaxed">
+                        Remove ou reduz significativamente as animações do site,
+                        tornando-o mais confortável para pessoas sensíveis a movimento
+                        ou que preferem uma experiência mais estática.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <span className={cn(
-                  "text-sm font-semibold",
-                  reducedMotion ? "text-accent" : "text-muted-foreground"
-                )}>
-                  {reducedMotion ? 'Ativo' : 'Desativado'}
+                <span
+                  className={cn(
+                    "text-sm font-semibold",
+                    reducedMotion ? "text-accent" : "text-muted-foreground"
+                  )}
+                >
+                  {reducedMotion ? "Ativo" : "Desativado"}
                 </span>
               </button>
             </div>
@@ -226,7 +257,9 @@ const ShortcutItem = ({ label, keys }: ShortcutItemProps) => {
       <div className="flex items-center gap-2">
         {keys.map((key, index) => (
           <div key={key} className="flex items-center gap-2">
-            {index > 0 && <span className="text-muted-foreground text-xs">or</span>}
+            {index > 0 && (
+              <span className="text-muted-foreground text-xs">or</span>
+            )}
             <kbd className="px-3 py-1.5 rounded-md bg-muted/80 border border-border font-mono text-xs font-semibold">
               {key}
             </kbd>

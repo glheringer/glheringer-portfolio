@@ -1,14 +1,30 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Images } from "lucide-react";
 import { GradientOrb } from "@/components/backgrounds/GradientOrb";
 import { MagicCard } from "@/components/ui/magic-card";
+import { LazyImage } from "@/components/ui/lazy-image";
+import { TextReveal } from "@/components/ui/text-reveal";
 import { ProjectGalleryModal } from "./ProjectGalleryModal";
+
+type ProjectCategory = "all" | "web" | "mobile" | "crm";
+
+interface Project {
+  title: string;
+  description: string;
+  tags: string[];
+  link: string | null;
+  image: string;
+  galleryImages: string[];
+  customMessage?: string;
+  category: ProjectCategory;
+}
 
 export const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [activeFilter, setActiveFilter] = useState<ProjectCategory>("all");
 
-  const projects = [
+  const projects: Project[] = [
     {
       title: "Landing Pages - Grupo Multiluz",
       description:
@@ -22,6 +38,7 @@ export const Projects = () => {
         "/images/multiluz-feirao.png",
         "/images/multiluz-beneficios.png",
       ],
+      category: "web",
     },
     {
       title: "E-commerce - Oliva Originals",
@@ -36,6 +53,7 @@ export const Projects = () => {
         "/images/oliva-cart.png",
         "/images/oliva-footer-2.png",
       ],
+      category: "web",
     },
     {
       title: "CRM Grupo Multiluz",
@@ -54,6 +72,7 @@ export const Projects = () => {
         "/images/crm-multiluz3.png",
         "/images/crm-multiluz4.png",
       ],
+      category: "crm",
     },
     {
       title: "App Connect - Rede Social Corporativa",
@@ -68,6 +87,7 @@ export const Projects = () => {
         "/images/connect2.jpeg",
         "/images/connect3.jpeg",
       ],
+      category: "mobile",
     },
     {
       title: "Santander Esfera",
@@ -78,7 +98,20 @@ export const Projects = () => {
       image: "/images/esfera.webp",
       galleryImages: [],
       customMessage: "Disponível nas lojas de aplicativos",
+      category: "mobile",
     },
+  ];
+
+  const filteredProjects = useMemo(() => {
+    if (activeFilter === "all") return projects;
+    return projects.filter((project) => project.category === activeFilter);
+  }, [activeFilter]);
+
+  const filterButtons = [
+    { id: "all" as ProjectCategory, label: "Todos", count: projects.length },
+    { id: "web" as ProjectCategory, label: "Web Apps", count: projects.filter(p => p.category === "web").length },
+    { id: "mobile" as ProjectCategory, label: "Mobile", count: projects.filter(p => p.category === "mobile").length },
+    { id: "crm" as ProjectCategory, label: "CRM/Dashboards", count: projects.filter(p => p.category === "crm").length },
   ];
 
   return (
@@ -90,12 +123,44 @@ export const Projects = () => {
         delay={1}
       />
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-gradient">
-          Projetos
-        </h2>
+        <TextReveal className="mb-12">
+          <h2 className="heading-section text-center text-gradient">
+            Projetos
+          </h2>
+        </TextReveal>
+
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 md:mb-12">
+          {filterButtons.map((filter) => (
+            <button
+              key={filter.id}
+              onClick={() => setActiveFilter(filter.id)}
+              className={`
+                px-4 py-2 rounded-lg text-sm sm:text-base font-medium transition-all duration-300
+                hover:scale-105 active:scale-95
+                ${
+                  activeFilter === filter.id
+                    ? "bg-primary text-primary-foreground shadow-lg"
+                    : "bg-muted/50 text-foreground hover:bg-muted border border-border"
+                }
+              `}
+            >
+              {filter.label}
+              <span
+                className={`ml-2 px-1.5 py-0.5 rounded text-xs ${
+                  activeFilter === filter.id
+                    ? "bg-primary-foreground/20"
+                    : "bg-foreground/10"
+                }`}
+              >
+                {filter.count}
+              </span>
+            </button>
+          ))}
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
-          {projects.map((project, index) => (
+          {filteredProjects.map((project, index) => (
             <MagicCard
               key={index}
               className="animate-fade-in"
@@ -107,29 +172,20 @@ export const Projects = () => {
                 className="p-3 sm:p-4 md:p-5 lg:p-6 h-full group flex flex-col"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div
-                  className={`h-28 sm:h-32 md:h-40 lg:h-48 rounded-lg mb-3 sm:mb-4
-                              flex items-center justify-center overflow-hidden flex-shrink-0 ${
-                                project.title === "Santander Esfera"
-                                  ? "bg-white"
-                                  : "bg-gradient-to-br from-blue-500/20 to-cyan-500/20"
-                              }`}
-                >
-                  {project.image ? (
-                    <img
+                {project.image ? (
+                  <div className="rounded-lg mb-4 overflow-hidden flex-shrink-0">
+                    <LazyImage
                       src={project.image}
                       alt={project.title}
-                      loading="lazy"
-                      className={`w-full h-full ${
-                        project.title === "Santander Esfera"
-                          ? "object-contain"
-                          : "object-cover"
-                      }`}
+                      aspectRatio="16/10"
+                      className="rounded-lg"
                     />
-                  ) : (
-                    <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl opacity-20">🚀</div>
-                  )}
-                </div>
+                  </div>
+                ) : (
+                  <div className="h-48 rounded-lg mb-4 flex items-center justify-center bg-gradient-to-br from-blue-500/20 to-cyan-500/20 flex-shrink-0">
+                    <div className="text-5xl opacity-20">🚀</div>
+                  </div>
+                )}
 
                 <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-semibold mb-2 group-hover:text-blue-500 transition-colors">
                   {project.title}

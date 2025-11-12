@@ -1,17 +1,20 @@
 import { Button } from '@/components/ui/button';
 import { Mail, Linkedin, Github } from 'lucide-react';
+import { TextReveal } from '@/components/ui/text-reveal';
 import { ContactForm } from './ContactForm';
 
 export const Contact = () => {
   return (
     <section id="contact" className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-secondary/30">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-gradient">
-          Vamos Conversar?
-        </h2>
+        <TextReveal className="mb-12">
+          <h2 className="heading-section text-center text-gradient">
+            Vamos Conversar?
+          </h2>
+        </TextReveal>
 
-        <div className="card-elegant p-5 sm:p-6 md:p-8 lg:p-10 animate-fade-in">
-          <p className="text-center text-xs sm:text-sm md:text-base text-muted-foreground mb-6 sm:mb-8 leading-relaxed">
+        <div className="card-elegant p-8 lg:p-10 animate-fade-in">
+          <p className="text-center text-body-small text-muted-foreground mb-8">
             Interessado em trabalhar juntos? Envie uma mensagem ou entre em contato diretamente!
           </p>
 

@@ -1,5 +1,6 @@
 import { Code2, Palette, Zap } from 'lucide-react';
 import { GridBackground } from '@/components/backgrounds/GridBackground';
+import { TextReveal } from '@/components/ui/text-reveal';
 
 export const About = () => {
   const features = [
@@ -24,9 +25,11 @@ export const About = () => {
     <section id="about" className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
       <GridBackground />
       <div className="max-w-6xl mx-auto relative z-10">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-gradient">
-          Sobre Mim
-        </h2>
+        <TextReveal className="mb-12">
+          <h2 className="heading-section text-center text-gradient">
+            Sobre Mim
+          </h2>
+        </TextReveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 md:gap-6 lg:gap-8 mb-8 sm:mb-12 md:mb-16">
           {features.map((feature, index) => {
@@ -37,11 +40,11 @@ export const About = () => {
                 className="card-elegant p-4 sm:p-5 md:p-6 lg:p-8 hover-lift animate-fade-in"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="mb-3 sm:mb-4 inline-block p-2 sm:p-2.5 md:p-3 rounded-xl bg-accent/10">
-                  <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-8 lg:w-8 text-accent" />
+                <div className="mb-4 inline-block p-3 rounded-xl bg-accent/10">
+                  <Icon className="h-7 w-7 sm:h-8 sm:w-8 text-accent" />
                 </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2 sm:mb-3">{feature.title}</h3>
-                <p className="text-xs sm:text-sm md:text-base text-muted-foreground leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl sm:text-2xl font-semibold mb-3">{feature.title}</h3>
+                <p className="text-body-small text-muted-foreground">{feature.description}</p>
               </div>
             );
           })}
@@ -59,7 +62,7 @@ export const About = () => {
               </div>
             </div>
             <div className="flex-1">
-              <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground leading-relaxed text-center md:text-left">
+              <p className="text-body text-muted-foreground text-center md:text-left">
                 Desenvolvedor de Software Pleno, 25 anos, Ipatinga-MG. Especializado em React, React Native e Node.js,
                 transformo ideias em aplicações modernas e escaláveis. Disponível para viagens a trabalho.
               </p>

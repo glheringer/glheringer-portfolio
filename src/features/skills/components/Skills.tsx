@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { TextReveal } from "@/components/ui/text-reveal";
 
 export const Skills = () => {
   const [showAll, setShowAll] = useState(false);
@@ -38,12 +39,14 @@ export const Skills = () => {
   return (
     <section id="skills" className="py-12 sm:py-16 md:py-20 px-3 sm:px-4 md:px-6 bg-secondary/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-6 sm:mb-8 md:mb-12 text-gradient">
-          Habilidades
-        </h2>
+        <TextReveal className="mb-12">
+          <h2 className="heading-section text-center text-gradient">
+            Habilidades
+          </h2>
+        </TextReveal>
 
-        <div className="card-elegant p-5 sm:p-6 md:p-8 lg:p-10 animate-fade-in">
-          <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-4 sm:mb-6 text-primary text-center">
+        <div className="card-elegant p-8 lg:p-10 animate-fade-in">
+          <h3 className="heading-subsection mb-6 text-primary text-center">
             Principais Tecnologias
           </h3>
 
@@ -64,8 +67,8 @@ export const Skills = () => {
 
           {/* Skills Complementares (Expandível) */}
           {showAll && (
-            <div className="border-t border-border/50 pt-6 sm:pt-8 animate-fade-in">
-              <h3 className="text-sm sm:text-base md:text-lg font-semibold mb-4 sm:mb-6 text-muted-foreground text-center">
+            <div className="border-t border-border/50 pt-8 animate-fade-in">
+              <h3 className="text-xl sm:text-2xl font-semibold mb-6 text-muted-foreground text-center">
                 Tecnologias Complementares
               </h3>
               <div className="flex flex-wrap gap-2 sm:gap-2.5 md:gap-3 justify-center mb-6 sm:mb-8">

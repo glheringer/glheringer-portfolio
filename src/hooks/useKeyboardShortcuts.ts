@@ -64,6 +64,12 @@ export const useKeyboardShortcuts = () => {
 
       if (isTyping) return;
 
+      // Ignora se alguma tecla modificadora estiver pressionada
+      // (Command/Meta, Ctrl, Alt/Option, Shift)
+      if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) {
+        return;
+      }
+
       const key = event.key.toLowerCase();
       const shortcut = shortcuts.find(s => s.key === key);
 
