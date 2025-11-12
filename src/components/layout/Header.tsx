@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/features/theme/components/ThemeToggle';
-import { Menu, X } from 'lucide-react';
+import { useActionCenterStore } from '@/hooks/useActionCenter';
+import { Menu, X, Zap } from 'lucide-react';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { toggleActionCenter } = useActionCenterStore();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,19 +63,33 @@ export const Header = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => (
-              <Button
-                key={item.href}
-                variant="ghost"
-                onClick={() => scrollToSection(item.href)}
-                className="hover:bg-accent/10 hover:text-accent transition-all"
-              >
-                {item.label}
-              </Button>
-            ))}
+          <div className="hidden md:flex items-center gap-4">
+            <nav className="flex items-center gap-1">
+              {navItems.map((item) => (
+                <Button
+                  key={item.href}
+                  variant="ghost"
+                  onClick={() => scrollToSection(item.href)}
+                  className="hover:bg-accent/10 hover:text-accent transition-all"
+                >
+                  {item.label}
+                </Button>
+              ))}
+            </nav>
             <ThemeToggle />
-          </nav>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={toggleActionCenter}
+              className="hidden lg:flex border-accent/50 hover:bg-accent/10 hover:border-accent transition-all items-center gap-2 ml-2"
+            >
+              <Zap className="h-4 w-4 text-accent" />
+              <span>Acesso Rápido</span>
+              <kbd className="hidden xl:inline px-2 py-0.5 text-xs rounded bg-muted border border-border font-mono">
+                Q
+              </kbd>
+            </Button>
+          </div>
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-2">
