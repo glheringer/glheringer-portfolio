@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import { createContactMessage, getContactMessages } from '../controllers/contactController';
-import { validateContact, handleValidationErrors } from '../middleware/validation';
-import { contactLimiter } from '../middleware/rateLimiter';
+import { createContactMessage, getContactMessages } from '../controllers/contactController.js';
+import { validateContact, handleValidationErrors } from '../middleware/validation.js';
+import { contactLimiter } from '../middleware/rateLimiter.js';
 
 const router = Router();
 

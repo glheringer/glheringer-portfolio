@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, resolve } from 'path';
-import contactRoutes from './routes/contactRoutes';
+import contactRoutes from './routes/contactRoutes.js';
 
 // ES module support for __dirname
 const __filename = fileURLToPath(import.meta.url);

@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import { sql } from '../config/supabase';
-import { ContactMessageRequest } from '../types';
-import { emailService } from '../services/emailService';
+import { sql } from '../config/supabase.js';
+import { ContactMessageRequest } from '../types/index.js';
+import { emailService } from '../services/emailService.js';
 
 export const createContactMessage = async (req: Request, res: Response) => {
   try {
