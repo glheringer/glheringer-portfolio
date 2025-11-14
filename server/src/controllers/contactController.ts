@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { sql } from '../config/supabase';
 import { ContactMessageRequest } from '../types';
+import { emailService } from '../services/emailService';
 
 export const createContactMessage = async (req: Request, res: Response) => {
   try {
@@ -28,6 +29,17 @@ export const createContactMessage = async (req: Request, res: Response) => {
     `;
 
     const data = result[0];
+
+    // Envia email de notificação (não bloqueia a resposta)
+    emailService.sendContactNotification({
+      name,
+      email,
+      phone,
+      subject,
+      message,
+    }).catch(error => {
+      console.error('Erro ao enviar email de notificação:', error);
+    });
 
     return res.status(201).json({
       success: true,
